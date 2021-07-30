@@ -1,0 +1,39 @@
+@import 'tailwindcss/base';
+
+@import 'tailwindcss/components';
+@import 'components.css';
+
+@import 'tailwindcss/utilities';
+@import 'utilities.css';
+
+.menuItem {
+  @apply font-medium text-white px-3 py-2;
+}
+
+.menuItem {
+  @apply font-medium text-white px-3 py-2;
+}
+
+.menuItem:hover {
+  animation: text-shadow-drop-center 0.6s both;
+}
+
+@keyframes text-shadow-drop-center {
+  0% {
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
+  100% {
+    text-shadow: 0 0 24px rgba(0, 0, 0, 0.35);
+  }
+}
+
+.activeMenu {
+  @apply text-primary font-semibold;
+}
+
+.sc-button-group,
+.cookiePolicy,
+.sound__panel,
+.teaserVisible {
+  display: none !important;
+}

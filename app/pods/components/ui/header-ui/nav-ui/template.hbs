@@ -1,0 +1,97 @@
+<nav class='bg-secondary' {{on-click-outside this.close}}>
+  <div class='max-w-7xl mx-auto sm:px-6 lg:px-8'>
+    <div>
+      <div class='flex items-center justify-between px-4 sm:px-0'>
+        <div class='flex items-center'>
+          <img class='h-24 w-24' src='/img/logo.png' alt='Workflow' />
+
+          <header class='ml-4 flex justify-start'>
+            <h1 class='text-3xl font-medium text-white'>
+              {{this.activeRoute}}
+            </h1>
+          </header>
+        </div>
+        <div class='ml-10 hidden md:flex justify-end items-baseline space-x-4'>
+          <LinkTo @route='index' @activeClass='activeMenu' class='menuItem'>
+            Accueil
+          </LinkTo>
+          <LinkTo @route='search' @activeClass='activeMenu' class='menuItem'>
+            Rechercher
+          </LinkTo>
+          <LinkTo @route='favorites' @activeClass='activeMenu' class='menuItem'>
+            Favoris
+          </LinkTo>
+        </div>
+        <div class='-mr-2 flex md:hidden'>
+          <button
+            type='button'
+            class='inline-flex items-center justify-center p-2 text-primary focus:outline-none'
+            aria-controls='mobile-menu'
+            aria-expanded='false'
+            {{on 'click' (toggle 'isOpen' this)}}
+          >
+            <span class='sr-only'>Open main menu</span>
+            <svg
+              class='{{if this.isOpen 'hidden' 'block'}} h-8 w-8'
+              xmlns='http://www.w3.org/2000/svg'
+              fill='none'
+              viewBox='0 0 24 24'
+              stroke='currentColor'
+              aria-hidden='true'
+            >
+              <path
+                stroke-linecap='round'
+                stroke-linejoin='round'
+                stroke-width='2'
+                d='M4 6h16M4 12h16M4 18h16'
+              ></path>
+            </svg>
+            <svg
+              class='{{if this.isOpen 'block' 'hidden'}} h-8 w-8'
+              xmlns='http://www.w3.org/2000/svg'
+              fill='none'
+              viewBox='0 0 24 24'
+              stroke='currentColor'
+              aria-hidden='true'
+            >
+              <path
+                stroke-linecap='round'
+                stroke-linejoin='round'
+                stroke-width='2'
+                d='M6 18L18 6M6 6l12 12'
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='{{if this.isOpen 'block' 'hidden'}} md:hidden' id='mobile-menu'>
+    <div class='flex flex-col px-2 py-3 space-y-1 sm:px-3'>
+      <LinkTo
+        @route='index'
+        @activeClass='activeMenu'
+        class='menuItem text-center'
+        {{on 'click' (toggle 'isOpen' this)}}
+      >
+        Accueil
+      </LinkTo>
+      <LinkTo
+        @route='search'
+        @activeClass='activeMenu'
+        class='menuItem text-center'
+        {{on 'click' (toggle 'isOpen' this)}}
+      >
+        Rechercher
+      </LinkTo>
+      <LinkTo
+        @route='favorites'
+        @activeClass='activeMenu'
+        class='menuItem text-center'
+        {{on 'click' (toggle 'isOpen' this)}}
+      >
+        Favoris
+      </LinkTo>
+    </div>
+  </div>
+</nav>
